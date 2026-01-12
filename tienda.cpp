@@ -1,6 +1,7 @@
 #include<iostream> //librebreria
 #include<string>//librebreria
 #include<vector>//librebreria
+#include<limits>//lebraria para borar letra cuando numeros
 using namespace std;
 
 
@@ -8,7 +9,7 @@ struct persona{
     string nombre;
     string cedula;
     string contrasena;
-};
+}; 
 
 void menu(vector<persona>& lista);
 void jefe(vector<persona>& lista);
@@ -23,14 +24,38 @@ int main()
 }
 
 void menu(vector<persona>& lista  )
-{
+{   
+    
     int opc;
-    cout<<"MENU TIENDITA"<<endl;
-    cout<<"1.jefe"<<endl;
-    cout<<"2.empleado"<<endl;
-    cout<<"3.cliente"<<endl;   
-    cout<<"elije la opciion: "<<endl;  
-    cin >> opc;
+
+    while (true)
+    {
+        cout<<"MENU TIENDITA"<<endl;
+        cout<<"1.jefe"<<endl;
+        cout<<"2.empleado"<<endl;
+        cout<<"3.cliente"<<endl;   
+        cout<<"elije la opciion: "<<endl;  
+        
+
+        if(!( cin >> opc))
+        {
+            cout<<"invalidado"<<endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        }
+
+        if (opc>=1 && opc<=3)
+        {
+            break;
+        }
+        else
+        {
+            cout<<"intente nuevamente"<<endl;
+        }
+    }
+    
+
     switch (opc)
     {
         case 1:
@@ -43,9 +68,8 @@ void menu(vector<persona>& lista  )
         case 3:
             cout<<"menu cliente"<<endl;
             break;
-        default:
-            cout<< "opcion invalida";
-            break;
+       
+            
     }
 }
 
