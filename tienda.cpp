@@ -73,7 +73,7 @@ void jefe(vector<persona>& lista)
         case 2:
             cout<<"ver empleado"<<endl;
             mostrarEmpleados(lista);
-            jefe(lista);
+            
             
         case 3:
             cout<<"modificar empleado"<<endl;
