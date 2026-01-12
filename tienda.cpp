@@ -79,13 +79,32 @@ void jefe(vector<persona>& lista)
 //para los empleados a los cuales les asignará contraseña.
 {
     int opc;
-    cout<<"MENU JEFE"<<endl;
-    cout<<"1.crear empleado"<<endl;
-    cout<<"2.ver empleado"<<endl;
-    cout<<"3.modificar empleado"<<endl;
-    cout<<"4.eliminar empleado"<<endl;     
-    cout<<"elije la opciion: "<<endl;  
-    cin >> opc;
+
+    while (true)
+    {
+       cout<<"MENU JEFE"<<endl;
+       cout<<"1.crear empleado"<<endl;
+       cout<<"2.ver empleado"<<endl;
+       cout<<"3.modificar empleado"<<endl;
+       cout<<"4.eliminar empleado"<<endl;     
+       cout<<"elije la opciion: "<<endl;   
+
+       if(!( cin >> opc))
+        {
+            cout<<"invalidado"<<endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        if (opc>=1 && opc<=3)
+        {
+            break;
+        }
+        else
+        {
+            cout<<"intente nuevamente"<<endl;
+        }
+    }
+      
     switch (opc)
     {
 
@@ -96,9 +115,8 @@ void jefe(vector<persona>& lista)
             break;
         case 2:
             cout<<"ver empleado"<<endl;
-            mostrarEmpleados(lista);
-            
-            
+            mostrarEmpleados(lista); 
+            jefe(lista);  
         case 3:
             cout<<"modificar empleado"<<endl;
             break;
