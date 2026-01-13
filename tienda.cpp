@@ -97,7 +97,7 @@ void jefe(vector<persona>& lista)
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
-        if (opc>=1 && opc<=3)
+        if (opc>=1 && opc<=4)
         {
             break;
         }
@@ -124,6 +124,7 @@ void jefe(vector<persona>& lista)
             modificarEmpleados(lista);
              
             break;
+        case 4:
             cout<<"eliminar empleado"<<endl;
             eliminarEmpleados(lista);
             jefe(lista);
@@ -207,7 +208,6 @@ void eliminarEmpleados(vector<persona>& lista)
     cout<<"ingresa la cedula"<<endl;
     cin>>cedula;
 
-    
      cout<<" ELIMINADO"<<endl;
 
 }
