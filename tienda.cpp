@@ -193,8 +193,6 @@ void modificarEmpleados(vector<persona>& lista)
         }
     }
     
-    
-
 
    // for (persona& p:lista)
    // {
