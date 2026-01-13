@@ -15,6 +15,7 @@ void menu(vector<persona>& lista);
 void jefe(vector<persona>& lista);
 void insertaempleado(vector<persona>& lista);
 void mostrarEmpleados(vector<persona>& lista);
+void modificarEmpleados(vector<persona>& lista);
 
 int main()
 {
@@ -119,6 +120,8 @@ void jefe(vector<persona>& lista)
             jefe(lista);  
         case 3:
             cout<<"modificar empleado"<<endl;
+            modificarEmpleados(lista);
+             
             break;
             cout<<"eliminar empleado"<<endl;
             break;
@@ -168,6 +171,34 @@ void mostrarEmpleados(vector<persona>& lista)
 
 
 
+void modificarEmpleados(vector<persona>& lista)
+{
+    persona p;
+    string cedula;
+    string nuevo;
+    cout<<"CAMBIAR CONTRASENA"<<endl;
+    cout<<"ingresa la cedula"<<endl;
+    cin>>cedula;
+    
+    
+    for (persona& x: lista)
+    {
+        if (cedula == x.cedula)
+        {
+            cout<<"ingrese la nuva contraseña"<<endl;
+            cin>>nuevo;
+            x.contrasena=nuevo;
+            cout<<"nueva contraseña"<<endl;
+            cout<<x.contrasena;
+        }
+    }
+    
 
+
+   // for (persona& p:lista)
+   // {
+//
+   // }
+}
 
 
