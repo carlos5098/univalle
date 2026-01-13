@@ -1,6 +1,7 @@
 #include<iostream> //librebreria
 #include<string>//librebreria
 #include<vector>//librebreria
+#include<limits>//lebraria para borar letra cuando numeros
 using namespace std;
 
 
@@ -8,12 +9,13 @@ struct persona{
     string nombre;
     string cedula;
     string contrasena;
-};
+}; 
 
 void menu(vector<persona>& lista);
 void jefe(vector<persona>& lista);
 void insertaempleado(vector<persona>& lista);
 void mostrarEmpleados(vector<persona>& lista);
+void modificarEmpleados(vector<persona>& lista);
 
 int main()
 {
@@ -23,14 +25,38 @@ int main()
 }
 
 void menu(vector<persona>& lista  )
-{
+{   
+    
     int opc;
-    cout<<"MENU TIENDITA"<<endl;
-    cout<<"1.jefe"<<endl;
-    cout<<"2.empleado"<<endl;
-    cout<<"3.cliente"<<endl;   
-    cout<<"elije la opciion: "<<endl;  
-    cin >> opc;
+
+    while (true)
+    {
+        cout<<"MENU TIENDITA"<<endl;
+        cout<<"1.jefe"<<endl;
+        cout<<"2.empleado"<<endl;
+        cout<<"3.cliente"<<endl;   
+        cout<<"elije la opciion: "<<endl;  
+        
+
+        if(!( cin >> opc))
+        {
+            cout<<"invalidado"<<endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        }
+
+        if (opc>=1 && opc<=3)
+        {
+            break;
+        }
+        else
+        {
+            cout<<"intente nuevamente"<<endl;
+        }
+    }
+    
+
     switch (opc)
     {
         case 1:
@@ -43,9 +69,8 @@ void menu(vector<persona>& lista  )
         case 3:
             cout<<"menu cliente"<<endl;
             break;
-        default:
-            cout<< "opcion invalida";
-            break;
+       
+            
     }
 }
 
@@ -55,13 +80,32 @@ void jefe(vector<persona>& lista)
 //para los empleados a los cuales les asignará contraseña.
 {
     int opc;
-    cout<<"MENU JEFE"<<endl;
-    cout<<"1.crear empleado"<<endl;
-    cout<<"2.ver empleado"<<endl;
-    cout<<"3.modificar empleado"<<endl;
-    cout<<"4.eliminar empleado"<<endl;     
-    cout<<"elije la opciion: "<<endl;  
-    cin >> opc;
+
+    while (true)
+    {
+       cout<<"MENU JEFE"<<endl;
+       cout<<"1.crear empleado"<<endl;
+       cout<<"2.ver empleado"<<endl;
+       cout<<"3.modificar empleado"<<endl;
+       cout<<"4.eliminar empleado"<<endl;     
+       cout<<"elije la opciion: "<<endl;   
+
+       if(!( cin >> opc))
+        {
+            cout<<"invalidado"<<endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        if (opc>=1 && opc<=3)
+        {
+            break;
+        }
+        else
+        {
+            cout<<"intente nuevamente"<<endl;
+        }
+    }
+      
     switch (opc)
     {
 
@@ -72,11 +116,12 @@ void jefe(vector<persona>& lista)
             break;
         case 2:
             cout<<"ver empleado"<<endl;
-            mostrarEmpleados(lista);
-            
-            
+            mostrarEmpleados(lista); 
+            jefe(lista);  
         case 3:
             cout<<"modificar empleado"<<endl;
+            modificarEmpleados(lista);
+             
             break;
             cout<<"eliminar empleado"<<endl;
             break;
@@ -126,6 +171,34 @@ void mostrarEmpleados(vector<persona>& lista)
 
 
 
+void modificarEmpleados(vector<persona>& lista)
+{
+    persona p;
+    string cedula;
+    string nuevo;
+    cout<<"CAMBIAR CONTRASENA"<<endl;
+    cout<<"ingresa la cedula"<<endl;
+    cin>>cedula;
+    
+    
+    for (persona& x: lista)
+    {
+        if (cedula == x.cedula)
+        {
+            cout<<"ingrese la nuva contraseña"<<endl;
+            cin>>nuevo;
+            x.contrasena=nuevo;
+            cout<<"nueva contraseña"<<endl;
+            cout<<x.contrasena;
+        }
+    }
+    
 
+
+   // for (persona& p:lista)
+   // {
+//
+   // }
+}
 
 
