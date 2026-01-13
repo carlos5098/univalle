@@ -16,6 +16,7 @@ void jefe(vector<persona>& lista);
 void insertaempleado(vector<persona>& lista);
 void mostrarEmpleados(vector<persona>& lista);
 void modificarEmpleados(vector<persona>& lista);
+void eliminarEmpleados(vector<persona>& lista);
 
 int main()
 {
@@ -124,6 +125,8 @@ void jefe(vector<persona>& lista)
              
             break;
             cout<<"eliminar empleado"<<endl;
+            eliminarEmpleados(lista);
+            jefe(lista);
             break;
         default:
             cout<< "opcion invalida";
@@ -192,12 +195,19 @@ void modificarEmpleados(vector<persona>& lista)
             cout<<x.contrasena;
         }
     }
-    
-
-   // for (persona& p:lista)
-   // {
-//
-   // }
 }
 
+void eliminarEmpleados(vector<persona>& lista)
+{
 
+    persona p;
+    string cedula;
+    string nuevo;
+    cout<<"ELIMINAR"<<endl;
+    cout<<"ingresa la cedula"<<endl;
+    cin>>cedula;
+
+    
+     cout<<" ELIMINADO"<<endl;
+
+}
