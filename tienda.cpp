@@ -198,24 +198,5 @@ void modificarEmpleados(vector<persona>& lista)
     }
 }
 
-void eliminarEmpleados(vector<persona>& lista)
-{
 
-   
-    string cedula;
-    cout<<"ingresa la cedula"<<endl;
-    cin>>cedula;
-
-    for (int i=0; i<lista.size();i++)
-    {
-        if (lista[i].cedula == cedula)
-        {
-            lista.erase(lista.begin()+i);
-            cout<<"eliminado"<<endl;
-        }
-    }
-
-    
-
-}
 
