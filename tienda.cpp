@@ -201,13 +201,21 @@ void modificarEmpleados(vector<persona>& lista)
 void eliminarEmpleados(vector<persona>& lista)
 {
 
-    persona p;
+   
     string cedula;
-    string nuevo;
-    cout<<"ELIMINAR"<<endl;
     cout<<"ingresa la cedula"<<endl;
     cin>>cedula;
 
-     cout<<" ELIMINADO"<<endl;
+    for (int i=0; i<lista.size();i++)
+    {
+        if (lista[i].cedula == cedula)
+        {
+            lista.erase(lista.begin()+i);
+            cout<<"eliminado"<<endl;
+        }
+    }
+
+    
 
 }
+
