@@ -175,6 +175,7 @@ void mostrarEmpleados(vector<persona>& lista)
 
 
 
+
 void modificarEmpleados(vector<persona>& lista)
 {
     persona p;
@@ -197,6 +198,7 @@ void modificarEmpleados(vector<persona>& lista)
         }
     }
 }
+
 
 
 
