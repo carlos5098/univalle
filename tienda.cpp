@@ -16,6 +16,7 @@ void jefe(vector<persona>& lista);
 void insertaempleado(vector<persona>& lista);
 void mostrarEmpleados(vector<persona>& lista);
 void modificarEmpleados(vector<persona>& lista);
+void eliminarEmpleados(vector<persona>& lista);
 
 int main()
 {
@@ -96,7 +97,7 @@ void jefe(vector<persona>& lista)
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
-        if (opc>=1 && opc<=3)
+        if (opc>=1 && opc<=4)
         {
             break;
         }
@@ -123,7 +124,10 @@ void jefe(vector<persona>& lista)
             modificarEmpleados(lista);
              
             break;
+        case 4:
             cout<<"eliminar empleado"<<endl;
+            eliminarEmpleados(lista);
+            jefe(lista);
             break;
         default:
             cout<< "opcion invalida";
@@ -171,6 +175,7 @@ void mostrarEmpleados(vector<persona>& lista)
 
 
 
+
 void modificarEmpleados(vector<persona>& lista)
 {
     persona p;
@@ -192,11 +197,15 @@ void modificarEmpleados(vector<persona>& lista)
             cout<<x.contrasena;
         }
     }
+<<<<<<< HEAD
     
    // for (persona& p:lista)
    // {
 //
    // }
+=======
+>>>>>>> conitnuidad-de-codigo
 }
+
 
 
