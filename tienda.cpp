@@ -204,12 +204,11 @@ void modificarEmpleados(vector<persona>& lista)
 
 void eliminarEmpleados(vector<persona>& lista)
 {
-    persona p;
-    string cedula;
-    string nuevo;
-    cout<<"CAMBIAR CONTRASENA"<<endl;
+    
+    
+    cout<<"ELIMINAR EMPLEADO"<<endl;
     cout<<"ingresa la cedula"<<endl;
-    cin>>cedula;
+    
     
     
 //    for (persona& x: lista)
