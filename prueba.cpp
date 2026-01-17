@@ -17,6 +17,7 @@ vector<persona> lista = {
 };
 
 
+
 int main()
 {
 for (const persona& p : lista)

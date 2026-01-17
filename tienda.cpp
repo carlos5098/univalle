@@ -138,7 +138,6 @@ void jefe(vector<persona>& lista)
 
 //prototipo de la funcion
 
-
 void insertaempleado(vector<persona>& lista)
 {    
     
@@ -173,9 +172,6 @@ void mostrarEmpleados(vector<persona>& lista)
     }
 }
 
-
-
-
 void modificarEmpleados(vector<persona>& lista)
 {
     persona p;
@@ -197,14 +193,7 @@ void modificarEmpleados(vector<persona>& lista)
             cout<<x.contrasena;
         }
     }
-<<<<<<< HEAD
     
-   // for (persona& p:lista)
-   // {
-//
-   // }
-=======
->>>>>>> conitnuidad-de-codigo
 }
 
 
