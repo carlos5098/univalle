@@ -113,12 +113,12 @@ void jefe(vector<persona>& lista)
         case 1:
             cout<<"crear empleado"<<endl;
             insertaempleado(lista);
-            jefe(lista);
+            
             break;
         case 2:
             cout<<"ver empleado"<<endl;
             mostrarEmpleados(lista); 
-            jefe(lista);  
+              
         case 3:
             cout<<"modificar empleado"<<endl;
             modificarEmpleados(lista);
@@ -127,7 +127,7 @@ void jefe(vector<persona>& lista)
         case 4:
             cout<<"eliminar empleado"<<endl;
             eliminarEmpleados(lista);
-            jefe(lista);
+        
             break;
         default:
             cout<< "opcion invalida";
@@ -198,3 +198,26 @@ void modificarEmpleados(vector<persona>& lista)
 
 
 
+<<<<<<< HEAD
+=======
+void eliminarEmpleados(vector<persona>& lista)
+{
+    string cedula;
+    cout<<"ELIMINAR EMPLEADO"<<endl;
+
+    cin>>cedula;
+  
+    //lista.erase(lista.begin() + posicion);
+    for (int i=0; i<lista.size() ;i++)
+    {
+        if (lista[i].cedula == cedula)
+        {
+            
+            lista.erase(lista.begin()+i);
+
+            cout<<"se elimino"<<endl;
+        }
+    }
+
+}
+>>>>>>> conitnuidad-de-codigo
