@@ -4,6 +4,7 @@
 #include<limits>//lebraria para borar letra cuando numeros
 using namespace std;
 
+//lista empleado
 
 struct persona{
     string nombre;
@@ -11,21 +12,32 @@ struct persona{
     string contrasena;
 }; 
 
-void menu(vector<persona>& lista);
+// lista productos
+
+struct producto{
+    string codigo;
+    string nombre;
+    string cantida;
+    string precio;
+}; 
+
+void menu(vector<persona>& lista, vector<producto>& inventario);
 void jefe(vector<persona>& lista);
 void insertaempleado(vector<persona>& lista);
 void mostrarEmpleados(vector<persona>& lista);
 void modificarEmpleados(vector<persona>& lista);
 void eliminarEmpleados(vector<persona>& lista);
+void agregarinvetario(vector<producto>& inventario);
 
 int main()
 {
   vector<persona> lista ; //crear la lista
-  menu(lista);
+  vector<producto> inventario;
+  menu(lista, inventario);
   return 0;
 }
 
-void menu(vector<persona>& lista  )
+void menu(vector<persona>& lista, vector<producto>& inventario  )
 {   
     
     int opc;
@@ -66,6 +78,7 @@ void menu(vector<persona>& lista  )
             break;
         case 2:
             cout<<"menu empleado"<<endl;
+            agregarinvetario(inventario);
             break;
         case 3:
             cout<<"menu cliente"<<endl;
@@ -222,3 +235,48 @@ void eliminarEmpleados(vector<persona>& lista)
     }
 
 }
+
+void agregarinvetario(vector<producto>& inventario)
+{
+    int opc;
+
+    while (true)
+    {
+       cout<<"MENU EMPLEADO"<<endl;
+       cout<<"1.ingresar producto"<<endl;
+       cout<<"2.ver inventario"<<endl;     
+       cout<<"elije la opciion: "<<endl;   
+
+       if(!( cin >> opc))
+        {
+            cout<<"invalidado"<<endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        if (opc>=1 && opc<=4)
+        {
+            break;
+        }
+        else
+        {
+            cout<<"intente nuevamente"<<endl;
+        }
+    }
+      
+    switch (opc)
+    {
+
+        case 1:
+            cout<<"ingresar producto"<<endl;
+            break;
+        case 2:
+            cout<<"ver inventario"<<endl;
+            break;
+        default:
+            cout<< "opcion invalida";
+            break;
+    }
+
+}
+
+void ()
