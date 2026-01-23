@@ -196,10 +196,6 @@ void modificarEmpleados(vector<persona>& lista)
     
 }
 
-
-
-<<<<<<< HEAD
-=======
 void eliminarEmpleados(vector<persona>& lista)
 {
     string cedula;
@@ -220,4 +216,3 @@ void eliminarEmpleados(vector<persona>& lista)
     }
 
 }
->>>>>>> conitnuidad-de-codigo
