@@ -154,7 +154,7 @@ void jefe(vector<persona>& lista, vector<producto>& inventario)
         
         case 5:
             cout<<"menu anterior"<<endl;
-           
+            menu(lista, inventario);
         
     
             break;
