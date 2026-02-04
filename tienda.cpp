@@ -4,7 +4,7 @@
 #include<limits>//lebraria para borar letra cuando numeros
 using namespace std;
 
-//lista empleado
+//lista empleado se crea la estrutura
 
 struct persona{
     string nombre;
@@ -21,6 +21,8 @@ struct producto{
     string precio;
 }; 
 
+///definie la funcion
+
 void menu(vector<persona>& lista, vector<producto>& inventario);
 void jefe(vector<persona>& lista);
 void insertaempleado(vector<persona>& lista);
@@ -28,6 +30,7 @@ void mostrarEmpleados(vector<persona>& lista);
 void modificarEmpleados(vector<persona>& lista);
 void eliminarEmpleados(vector<persona>& lista);
 void agregarinvetario(vector<producto>& inventario);
+void productos(vector<producto>& inventario);
 
 int main()
 {
@@ -102,7 +105,8 @@ void jefe(vector<persona>& lista)
        cout<<"2.ver empleado"<<endl;
        cout<<"3.modificar empleado"<<endl;
        cout<<"4.eliminar empleado"<<endl;     
-       cout<<"elije la opciion: "<<endl;   
+       cout<<"5. menu anterior: "<<endl;   
+       cout<<"elije la opciion: "<<endl; 
 
        if(!( cin >> opc))
         {
@@ -110,7 +114,7 @@ void jefe(vector<persona>& lista)
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
-        if (opc>=1 && opc<=4)
+        if (opc>=1 && opc<=5)
         {
             break;
         }
@@ -118,29 +122,41 @@ void jefe(vector<persona>& lista)
         {
             cout<<"intente nuevamente"<<endl;
         }
+
+        
     }
-      
+    
     switch (opc)
     {
 
         case 1:
             cout<<"crear empleado"<<endl;
             insertaempleado(lista);
+            jefe(lista);
             
             break;
         case 2:
             cout<<"ver empleado"<<endl;
             mostrarEmpleados(lista); 
+            jefe(lista);
               
         case 3:
             cout<<"modificar empleado"<<endl;
             modificarEmpleados(lista);
+            jefe(lista);
+              
              
             break;
         case 4:
             cout<<"eliminar empleado"<<endl;
             eliminarEmpleados(lista);
+            jefe(lista);
         
+        case 5:
+            cout<<"menu anterior"<<endl;
+           
+        
+    
             break;
         default:
             cout<< "opcion invalida";
@@ -253,7 +269,7 @@ void agregarinvetario(vector<producto>& inventario)
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
-        if (opc>=1 && opc<=4)
+        if (opc>=1 && opc<=2)
         {
             break;
         }
@@ -279,4 +295,8 @@ void agregarinvetario(vector<producto>& inventario)
 
 }
 
-void ()
+void productos(vector<producto>& inventario)
+{
+
+    //ingresar en la lista el producto 
+}
