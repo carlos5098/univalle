@@ -239,14 +239,13 @@ void eliminarEmpleados(vector<persona>& lista)
         {
             
             lista.erase(lista.begin()+i);
-
+1
             cout<<"se elimino"<<endl;
         }
     }
 
 }
-<<<<<<< HEAD
-=======
+
 
 void agregarinvetario(vector<producto>& inventario)
 {
@@ -296,4 +295,3 @@ void productos(vector<producto>& inventario)
 
     //ingresar en la lista el producto 
 }
->>>>>>> conitnuidad-de-codigo
