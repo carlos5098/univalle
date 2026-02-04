@@ -24,7 +24,7 @@ struct producto{
 ///definie la funcion
 
 void menu(vector<persona>& lista, vector<producto>& inventario);
-void jefe(vector<persona>& lista, vector<producto>& inventario);
+void jefe(vector<persona>& lista);
 void insertaempleado(vector<persona>& lista);
 void mostrarEmpleados(vector<persona>& lista);
 void modificarEmpleados(vector<persona>& lista);
@@ -77,7 +77,7 @@ void menu(vector<persona>& lista, vector<producto>& inventario  )
     {
         case 1:
             cout<<"menu jefe"<<endl;
-            jefe(lista, inventario);
+            jefe(lista);
             break;
         case 2:
             cout<<"menu empleado"<<endl;
@@ -91,7 +91,7 @@ void menu(vector<persona>& lista, vector<producto>& inventario  )
     }
 }
 
-void jefe(vector<persona>& lista, vector<producto>& inventario)
+void jefe(vector<persona>& lista)
 //Funcionalidades para el Jefe
 //1. Tendrá un menú para hacer el CRUD 
 //para los empleados a los cuales les asignará contraseña.
@@ -132,29 +132,29 @@ void jefe(vector<persona>& lista, vector<producto>& inventario)
         case 1:
             cout<<"crear empleado"<<endl;
             insertaempleado(lista);
-            jefe(lista, inventario);
+            jefe(lista);
             
             break;
         case 2:
             cout<<"ver empleado"<<endl;
             mostrarEmpleados(lista); 
-            jefe(lista, inventario);
+            jefe(lista);
               
         case 3:
             cout<<"modificar empleado"<<endl;
             modificarEmpleados(lista);
-            jefe(lista, inventario);
+            jefe(lista);
               
              
             break;
         case 4:
             cout<<"eliminar empleado"<<endl;
             eliminarEmpleados(lista);
-            jefe(lista, inventario);
+            jefe(lista);
         
         case 5:
             cout<<"menu anterior"<<endl;
-            menu(lista, inventario);
+           
         
     
             break;
@@ -166,7 +166,6 @@ void jefe(vector<persona>& lista, vector<producto>& inventario)
 }
 
 //prototipo de la funcion
-
 
 void insertaempleado(vector<persona>& lista)
 {    
@@ -202,9 +201,6 @@ void mostrarEmpleados(vector<persona>& lista)
     }
 }
 
-
-
-
 void modificarEmpleados(vector<persona>& lista)
 {
     persona p;
@@ -226,10 +222,8 @@ void modificarEmpleados(vector<persona>& lista)
             cout<<x.contrasena;
         }
     }
-
+    
 }
-
-
 
 void eliminarEmpleados(vector<persona>& lista)
 {
@@ -251,6 +245,7 @@ void eliminarEmpleados(vector<persona>& lista)
     }
 
 }
+
 
 void agregarinvetario(vector<producto>& inventario)
 {
@@ -295,8 +290,8 @@ void agregarinvetario(vector<producto>& inventario)
 
 }
 
-//void productos(vector<producto>& inventario)
-//{
+void productos(vector<producto>& inventario)
+{
 
     //ingresar en la lista el producto 
-//}
+}
