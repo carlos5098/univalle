@@ -24,7 +24,7 @@ struct producto{
 ///definie la funcion
 
 void menu(vector<persona>& lista, vector<producto>& inventario);
-void jefe(vector<persona>& lista);
+void jefe(vector<persona>& lista, vector<producto>& inventario);
 void insertaempleado(vector<persona>& lista);
 void mostrarEmpleados(vector<persona>& lista);
 void modificarEmpleados(vector<persona>& lista);
@@ -77,7 +77,7 @@ void menu(vector<persona>& lista, vector<producto>& inventario  )
     {
         case 1:
             cout<<"menu jefe"<<endl;
-            jefe(lista);
+            jefe(lista,inventario);
             break;
         case 2:
             cout<<"menu empleado"<<endl;
@@ -91,7 +91,7 @@ void menu(vector<persona>& lista, vector<producto>& inventario  )
     }
 }
 
-void jefe(vector<persona>& lista)
+void jefe(vector<persona>& lista, vector<producto>& inventario)
 //Funcionalidades para el Jefe
 //1. Tendrá un menú para hacer el CRUD 
 //para los empleados a los cuales les asignará contraseña.
@@ -132,25 +132,25 @@ void jefe(vector<persona>& lista)
         case 1:
             cout<<"crear empleado"<<endl;
             insertaempleado(lista);
-            jefe(lista);
+            jefe(lista, inventario);
             
             break;
         case 2:
             cout<<"ver empleado"<<endl;
             mostrarEmpleados(lista); 
-            jefe(lista);
+            jefe(lista, inventario);
               
         case 3:
             cout<<"modificar empleado"<<endl;
             modificarEmpleados(lista);
-            jefe(lista);
+            jefe(lista, inventario);
               
              
             break;
         case 4:
             cout<<"eliminar empleado"<<endl;
             eliminarEmpleados(lista);
-            jefe(lista);
+            jefe(lista, inventario);
         
         case 5:
             cout<<"menu anterior"<<endl;
@@ -290,8 +290,8 @@ void agregarinvetario(vector<producto>& inventario)
 
 }
 
-void productos(vector<producto>& inventario)
-{
-
-    //ingresar en la lista el producto 
-}
+//void productos(vector<producto>& inventario)
+//{
+//
+//    //ingresar en la lista el producto 
+//}
