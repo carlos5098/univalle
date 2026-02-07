@@ -197,9 +197,9 @@ void mostrarEmpleados(vector<persona>& lista)
     cout << "\nLISTA DE EMPLEADOS\n";
    for (const persona& x : lista)
    {
-        cout << x.cedula << ";"
-        x.nombre << ";"
-        x.contrasena << endl;
+    cout<< x.cedula << ";"
+           x.nombre << ";"
+           x.contrasena << endl;
     }
 }
 
@@ -295,9 +295,9 @@ void mostrarprodutos(vector<producto>& inventario)
     cout << "\nLISTA DE EMPLEADOS\n";
    for (const producto& m : inventario)
     {
-        cout << m.codigo << ";"
-        m.nombre << ";"
-        m.contrasena << endl;
+    cout << m.codigo << ";"
+            m.nombre << ";"
+            m.contrasena << endl;
     }
 }
    
