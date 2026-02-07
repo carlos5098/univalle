@@ -195,7 +195,8 @@ void insertaempleado(vector<persona>& lista)
 void mostrarEmpleados(vector<persona>& lista)
 {
     cout << "\nLISTA DE EMPLEADOS\n";
-   for (const persona& x : lista){
+   for (const persona& x : lista)
+   {
         cout << x.cedula << ";"
         x.nombre << ";"
         x.contrasena << endl;
@@ -288,15 +289,15 @@ void agregarinvetario(vector<producto>& inventario, vector<persona>& lista)
         }
     }
         
-
+}
 void mostrarprodutos(vector<producto>& inventario)
 {
     cout << "\nLISTA DE EMPLEADOS\n";
-   for (const producto& x : inventario)
+   for (const producto& m : inventario)
     {
-        cout << x.codigo << ";"
-        cout << x.nombre << ";"
-        cout << x.contrasena << endl;
+        cout << m.codigo << ";"
+        m.nombre << ";"
+        m.contrasena << endl;
     }
 }
    
@@ -314,7 +315,7 @@ void mostrarprodutos(vector<producto>& inventario)
    //         break;
    // }
 
-}
+
 
 //void productos(vector<producto>& inventario)
 //{
