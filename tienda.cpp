@@ -31,6 +31,7 @@ void modificarEmpleados(vector<persona>& lista);
 void eliminarEmpleados(vector<persona>& lista);
 void agregarinvetario(vector<producto>& inventario,vector<persona>& lista);
 void productos(vector<producto>& inventario, vector<persona>& lista);
+void mostrarprodutos(vector<producto>& inventario);
 
 int main()
 {
@@ -196,8 +197,8 @@ void mostrarEmpleados(vector<persona>& lista)
     cout << "\nLISTA DE EMPLEADOS\n";
    for (const persona& x : lista){
         cout << x.cedula << ";"
-             << x.nombre << ";"
-             << x.contrasena << endl;
+        x.nombre << ";"
+        x.contrasena << endl;
     }
 }
 
@@ -288,7 +289,16 @@ void agregarinvetario(vector<producto>& inventario, vector<persona>& lista)
     }
         
 
-
+void mostrarprodutos(vector<producto>& inventario)
+{
+    cout << "\nLISTA DE EMPLEADOS\n";
+   for (const producto& x : inventario)
+    {
+        cout << x.codigo << ";"
+        cout << x.nombre << ";"
+        cout << x.contrasena << endl;
+    }
+}
    
    // switch (opc)
    // {
