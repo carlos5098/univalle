@@ -24,7 +24,7 @@ struct producto{
 ///definie la funcion
 
 void menu(vector<persona>& lista, vector<producto>& inventario);
-void jefe(vector<persona>& lista, vector<producto>& inventario);
+void jefe(vector<persona>& lista );
 void insertaempleado(vector<persona>& lista);
 void mostrarEmpleados(vector<persona>& lista);
 void modificarEmpleados(vector<persona>& lista);
@@ -43,9 +43,9 @@ int main()
 
 void menu(vector<persona>& lista, vector<producto>& inventario  )
 {   
-    
-    int opc;
 
+    int opc;
+    
     while (true)
     {
         cout<<"MENU TIENDITA"<<endl;
@@ -53,46 +53,28 @@ void menu(vector<persona>& lista, vector<producto>& inventario  )
         cout<<"2.empleado"<<endl;
         cout<<"3.cliente"<<endl;   
         cout<<"elije la opciion: "<<endl;  
+        cin >> opc;
         
-
-        if(!( cin >> opc))
+        switch (opc)
         {
-            cout<<"invalidado"<<endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-        }
-
-        if (opc>=1 && opc<=3)
-        {
-            break;
-        }
-        else
-        {
-            cout<<"intente nuevamente"<<endl;
-        }
-    }
-    
-
-    switch (opc)
-    {
         case 1:
             cout<<"menu jefe"<<endl;
-            jefe(lista,inventario);
+            jefe(lista);
             break;
         case 2:
-            cout<<"menu empleado"<<endl;
-            menuempleado(inventario, lista);
+            cout<<  "LOGIN INGRESO MENU EMPLEADO" << endl; 
+            menuempleado( inventario,lista);
             break;
         case 3:
             cout<<"menu cliente"<<endl;
-            break;
-       
-            
+            return;    
+        default:
+               cout << "Opcion invalida\n";
+        }
     }
 }
 
-void jefe(vector<persona>& lista, vector<producto>& inventario)
+void jefe(vector<persona>& lista)
 //Funcionalidades para el Jefe
 //1. Tendrá un menú para hacer el CRUD 
 //para los empleados a los cuales les asignará contraseña.
@@ -101,68 +83,40 @@ void jefe(vector<persona>& lista, vector<producto>& inventario)
 
     while (true)
     {
-       cout<<"MENU JEFE"<<endl;
-       cout<<"1.crear empleado"<<endl;
-       cout<<"2.ver empleado"<<endl;
-       cout<<"3.modificar empleado"<<endl;
-       cout<<"4.eliminar empleado"<<endl;     
-       cout<<"5. menu anterior: "<<endl;   
-       cout<<"elije la opciion: "<<endl; 
-
-       if(!( cin >> opc))
+        cout<<"MENU JEFE"<<endl;
+        cout<<"1.crear empleado"<<endl;
+        cout<<"2.ver empleado"<<endl;
+        cout<<"3.modificar empleado"<<endl;
+        cout<<"4.eliminar empleado"<<endl;     
+        cout<<"5. menu anterior: "<<endl;   
+        cout<<"elije la opciion: "<<endl; 
+        cin>>opc ;
+        switch (opc)
         {
-            cout<<"invalidado"<<endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+             case 1:
+                 cout<<"crear empleado"<<endl;
+                 insertaempleado(lista);
+                 break;
+             case 2:
+                 cout<<"ver empleado"<<endl;
+                 mostrarEmpleados(lista); 
+                 break;
+             case 3:
+                 cout<<"modificar empleado"<<endl;
+                 modificarEmpleados(lista);
+                 break;
+             case 4:
+                 cout<<"eliminar empleado"<<endl;
+                 eliminarEmpleados(lista);
+                 break;
+             case 5:
+                 return; 
+             default:
+                 cout<< "opcion invalida";
         }
-        if (opc>=1 && opc<=5)
-        {
-            break;
-        }
-        else
-        {
-            cout<<"intente nuevamente"<<endl;
-        }
-
-        
     }
     
-    switch (opc)
-    {
-
-        case 1:
-            cout<<"crear empleado"<<endl;
-            insertaempleado(lista);
-            jefe(lista, inventario);
-            
-            break;
-        case 2:
-            cout<<"ver empleado"<<endl;
-            mostrarEmpleados(lista); 
-            jefe(lista, inventario);
-              
-        case 3:
-            cout<<"modificar empleado"<<endl;
-            modificarEmpleados(lista);
-            jefe(lista, inventario);
-              
-             
-            break;
-        case 4:
-            cout<<"eliminar empleado"<<endl;
-            eliminarEmpleados(lista);
-            jefe(lista, inventario);
-        
-        case 5:
-            cout<<"menu anterior"<<endl;
-            menu(lista, inventario);
-        
     
-            break;
-        default:
-            cout<< "opcion invalida";
-            break;
-    }
 
 }
 
@@ -249,23 +203,11 @@ void eliminarEmpleados(vector<persona>& lista)
 
 
 void menuempleado(vector<producto>& inventario, vector<persona>& lista)
-{
-    int opc;
-    persona c;
-    string cedula;
-    cout<<  "LOGIN INGRESO MENU EMPLEADO" << endl; 
-    cout<<  "ingrese la cedula" << endl;
-    cin>>cedula;
 
-    for (persona& c: lista)
-    {
-        if (cedula == c.cedula)
-        {
-        cout<<"SECCION INICIADA"<<endl;
-        
-            
+{           int opc;
             while (true)
             {
+                
                cout<<"MENU EMPLEADO"<<endl;  
                cout<<"1.ingresar producto"<<endl;
                cout<<"2.ver inventario"<<endl;     
@@ -292,10 +234,12 @@ void menuempleado(vector<producto>& inventario, vector<persona>& lista)
                 case 1:
                     cout<<"ingresar producto"<<endl;
                     agregarinvetario(inventario, lista);
+                    
                     break;
                 case 2:
                     cout<<"ver inventario"<<endl;
                     mostrarEmpleados(lista); 
+                    
                     break; 
                 case 3:
                     cout<<"menu anterior"<<endl;
@@ -305,20 +249,20 @@ void menuempleado(vector<producto>& inventario, vector<persona>& lista)
                     cout<< "opcion invalida";
                     break;
             }
-        }
-    }
-
-   
+        
+    
 }
 
 void agregarinvetario(vector<producto>& inventario, vector<persona>& lista)
 {
     producto p;
-
+    char opc;
     //si cedula y contraseña esta en lista entonces ingresa al bucle
 
         cout<<"INGRESE INVENTARO"<<endl;
-        
+
+        do
+        {
             cout<<"codigo"<<endl;
             cin>>p.codigo;
             cout<<"nombre"<<endl;
@@ -330,7 +274,11 @@ void agregarinvetario(vector<producto>& inventario, vector<persona>& lista)
             inventario.push_back(p);
 
             cout<<"se guardo en el inventario"<<endl;
-    }
+
+            cout<<"desea agregar otro s/n"<<endl;
+            cin>>opc;
+        } while (opc=='s'|| opc=='S');      
+}
 
 void verproductos(vector<producto>& inventario, vector<persona>& lista)
 {
