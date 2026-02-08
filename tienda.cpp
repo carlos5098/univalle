@@ -29,8 +29,9 @@ void insertaempleado(vector<persona>& lista);
 void mostrarEmpleados(vector<persona>& lista);
 void modificarEmpleados(vector<persona>& lista);
 void eliminarEmpleados(vector<persona>& lista);
-void agregarinvetario(vector<producto>& inventario);
-void productos(vector<producto>& inventario);
+void menuempleado(vector<producto>& inventario, vector<persona>& lista);
+void agregarinvetario(vector<producto>& inventario, vector<persona>& lista);
+void verproductos(vector<producto>& inventario, vector<persona>& lista);
 
 int main()
 {
@@ -81,7 +82,7 @@ void menu(vector<persona>& lista, vector<producto>& inventario  )
             break;
         case 2:
             cout<<"menu empleado"<<endl;
-            agregarinvetario(inventario);
+            menuempleado(inventario, lista);
             break;
         case 3:
             cout<<"menu cliente"<<endl;
@@ -247,59 +248,100 @@ void eliminarEmpleados(vector<persona>& lista)
 }
 
 
-void agregarinvetario(vector<producto>& inventario)
+void menuempleado(vector<producto>& inventario, vector<persona>& lista)
 {
     int opc;
+    persona c;
+    string cedula;
+    cout<<  "LOGIN INGRESO MENU EMPLEADO" << endl; 
+    cout<<  "ingrese la cedula" << endl;
+    cin>>cedula;
 
-    while (true)
+    for (persona& c: lista)
     {
-       cout<<"MENU EMPLEADO"<<endl;
-       cout<<"1.ingresar producto"<<endl;
-       cout<<"2.ver inventario"<<endl;     
-       cout<<"elije la opciion: "<<endl;   
-
-       if(!( cin >> opc))
+        if (cedula == c.cedula)
         {
-            cout<<"invalidado"<<endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
-        if (opc>=1 && opc<=2)
-        {
-            break;
-        }
-        else
-        {
-            cout<<"intente nuevamente"<<endl;
+        cout<<"SECCION INICIADA"<<endl;
+        
+            
+            while (true)
+            {
+               cout<<"MENU EMPLEADO"<<endl;  
+               cout<<"1.ingresar producto"<<endl;
+               cout<<"2.ver inventario"<<endl;     
+               cout<<"elije la opciion: "<<endl;   
+            
+               if(!( cin >> opc))
+                {
+                    cout<<"invalidado"<<endl;
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                }
+                if (opc>=1 && opc<=3)
+                {
+                    break;
+                }
+                else
+                {
+                    cout<<"intente nuevamente"<<endl;
+                }        
+            }
+    
+            switch (opc)
+            {
+                case 1:
+                    cout<<"ingresar producto"<<endl;
+                    agregarinvetario(inventario, lista);
+                    break;
+                case 2:
+                    cout<<"ver inventario"<<endl;
+                    mostrarEmpleados(lista); 
+                    break; 
+                case 3:
+                    cout<<"menu anterior"<<endl;
+                    menu(lista, inventario);
+                    break;
+                default:
+                    cout<< "opcion invalida";
+                    break;
+            }
         }
     }
-      
-    switch (opc)
-    {
 
-        case 1:
-            cout<<"ingresar producto"<<endl;
-            break;
-        case 2:
-            cout<<"ver inventario"<<endl;
-            break;
-        default:
-            cout<< "opcion invalida";
-            break;
-    }
-
+   
 }
 
-<<<<<<< HEAD
-void productos(vector<producto>& inventario)
+void agregarinvetario(vector<producto>& inventario, vector<persona>& lista)
 {
+    producto p;
 
-    //ingresar en la lista el producto 
+    //si cedula y contraseña esta en lista entonces ingresa al bucle
+
+        cout<<"INGRESE INVENTARO"<<endl;
+        
+            cout<<"codigo"<<endl;
+            cin>>p.codigo;
+            cout<<"nombre"<<endl;
+            cin>>p.nombre;
+            cout<<"cantida"<<endl;
+            cin>>p.cantida;
+            cout<<"precio"<<endl;
+            cin>>p.precio;
+            inventario.push_back(p);
+
+            cout<<"se guardo en el inventario"<<endl;
+    }
+
+void verproductos(vector<producto>& inventario, vector<persona>& lista)
+{
+    cout << "\nLISTA DE EMPLEADOS\n";
+   for (const producto& x : inventario)
+   {
+        cout << x.codigo << ";"
+             << x.nombre << ";"
+             << x.cantida << ";"
+             << x.precio << endl;
+    
+    }
+    //ingresar en la lista el produ
 }
-=======
-//void productos(vector<producto>& inventario)
-//{
-//
-//    //ingresar en la lista el producto 
-//}
->>>>>>> conitnuidad-de-codigo
